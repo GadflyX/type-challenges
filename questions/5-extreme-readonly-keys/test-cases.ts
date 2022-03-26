@@ -1,10 +1,5 @@
 import { Equal, Expect } from '@type-challenges/utils'
-
-type cases = [
-  Expect<Equal<'title', GetReadonlyKeys<Todo1>>>,
-  Expect<Equal<'title' | 'description', GetReadonlyKeys<Todo2>>>,
-]
-
+import { GetReadonlyKeys } from './template'
 interface Todo1 {
   readonly title: string
   description: string
@@ -16,3 +11,7 @@ interface Todo2 {
   readonly description: string
   completed?: boolean
 }
+type cases = [
+  Expect<Equal<'title', GetReadonlyKeys<Todo1>>>,
+  Expect<Equal<'title' | 'description', GetReadonlyKeys<Todo2>>>,
+]
